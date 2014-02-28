@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane alignment="CENTER" gridLinesVisible="true" hgap="10.0" prefHeight="600.0" prefWidth="800.0" vgap="10.0"
+          xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+          fx:controller="org.xezz.wow.combatlog.controller.MainController">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <children>
+                <Separator prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="171.0"/>
+                <Separator prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="300.0"/>
+                <TextArea fx:id="logOutputTextArea" disable="false" editable="false" prefHeight="237.0"
+                          prefWidth="800.0"
+                          promptText="Splitting output" text="" wrapText="true" AnchorPane.bottomAnchor="0.0"
+                          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="363.0"/>
+                <TextField id="selectedCombatLogTextField" fx:id="selectedCombatLogTextField" disable="false"
+                           editable="false" layoutX="17.0" layoutY="52.0" prefWidth="410.0"
+                           promptText="Combatlog file location"/>
+                <TextField id="selectedOutputDirectoryTextfield" fx:id="selectedOutputDirectoryTextField"
+                           disable="false"
+                           editable="false" layoutX="17.0" layoutY="103.0" prefWidth="410.0"
+                           promptText="Output directory location"/>
+                <Button id="combatLogButton" fx:id="combatLogSelectButton" layoutX="510.0" layoutY="52.0"
+                        mnemonicParsing="false" onAction="#selectCombatLogFired" text="Select combatlog to split"/>
+                <Button fx:id="outputDirectorySelectButton" layoutX="510.0" layoutY="104.0" mnemonicParsing="false"
+                        onAction="#selectOutputDirectoryFired" text="Select output directory"/>
+                <TextField id="combatDurationTextField" fx:id="combatDurationTextField" disable="false" layoutX="17.0"
+                           layoutY="213.0" prefWidth="200.0" text="15"/>
+                <CheckBox id="deleteInputFileCheckbox" fx:id="deleteInputFileCheckBox" layoutX="510.0" layoutY="211.0"
+                          disable="true" mnemonicParsing="false" text="Delete Input file after splitting"/>
+                <fx:define>
+                    <ToggleGroup fx:id="durationToggleGroup"/>
+                </fx:define>
+                <RadioButton fx:id="secondsRadioButton" layoutX="321.0" layoutY="219.0" mnemonicParsing="false"
+                             text="Seconds" toggleGroup="$durationToggleGroup" userData="seconds"/>
+                <RadioButton fx:id="minutesRadioButton" layoutX="321.0" layoutY="248.0" mnemonicParsing="false"
+                             selected="true" text="Minutes" toggleGroup="$durationToggleGroup" userData="minutes"/>
+                <CheckBox id="createSubdirectoryCheckbox" fx:id="createSubdirectoryCheckBox" layoutX="510.0"
+                          disable="true" layoutY="240.0" mnemonicParsing="false"
+                          text="Create subdirectory for splitted logs"/>
+                <Button fx:id="startSplittingButton" id="startSplittingButton" layoutX="357.0" layoutY="319.0"
+                        mnemonicParsing="false" onAction="#startSplittingFired" text="Start"/>
+            </children>
+        </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+</GridPane>
