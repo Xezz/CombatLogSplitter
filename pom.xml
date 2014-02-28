@@ -18,7 +18,7 @@
 
     <properties>
         <slf4j.version>1.6.1</slf4j.version>
-        <logsplitter.version>2.3-SNAPSHOT</logsplitter.version>
+        <logsplitter.version>2.3</logsplitter.version>
     </properties>
 
     <build>
